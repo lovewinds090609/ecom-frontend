@@ -20,10 +20,10 @@ const Products = () =>{
           productName: "MacBook Air M2s",
           image: "https://placehold.co/600x400",
           description: "Ultra-thin laptop with Apple's M2 chip, providing fast performance in a lightweight, portable design.",
-          quantity: 0,
+          quantity: 1,
           price: 2550.0,
           discount: 20.0,
-          specialPrice: 2040.0,
+          specialPrice: 0.0,
         }
     ]
     return(
@@ -39,7 +39,7 @@ const Products = () =>{
                 </div>
             ) : (
                 <div className="min-h-[700px]">
-                    <div className="pb-6 pt-14 gird 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-y-6 gap-x-6">
+                    <div className="pb-6 pt-14 grid 2xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-y-6 gap-x-6">
                         {products && 
                         products.map((item, i) => <ProductCard key={i} {...item} />
                         )}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import ProductViewModel from "./ProductViewModel";
 
 const ProductCard = ({productId, productName, image, description, quantity, price, discount, specialPrice}) =>{
     const [openProductViewModel, setOpenProductViewModel] = useState(false);
@@ -52,6 +53,12 @@ const ProductCard = ({productId, productName, image, description, quantity, pric
                 </button>
                 </div>
             </div>
+            <ProductViewModel 
+            open={openProductViewModel}
+            setOpen={setOpenProductViewModel}
+            product={selectedViewProduct}
+            isAvailable={isAvailable}
+            />
         </div>
     )
 }

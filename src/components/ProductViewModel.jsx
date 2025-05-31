@@ -5,7 +5,7 @@ import Status from './Status';
 import { MdClose, MdDone } from 'react-icons/md';
 
 function ProductViewModel({open, setOpen, product, isAvailable}) {
-  const {id, productName, image, description, quantity, price, discount, specialPrice} = product;
+  const {id, productName, image, description, quantity, productPrice, discount, productSpecialPrice} = product;
   const handleClickOpen = () => {
     setOpen(true);
   }
@@ -34,19 +34,19 @@ function ProductViewModel({open, setOpen, product, isAvailable}) {
               </div>
               <div className="space-y-2 text-gray-700 pb-4">
                 <div className="flex items-center justify-between gap-2">
-                    {specialPrice ? (<div className="flex item-center gap-2">
+                    {productSpecialPrice ? (<div className="flex item-center gap-2">
                         <span className="text-gray-400 line-through">
-                            ${Number(price)}
+                            ${Number(productPrice)}
                         </span>
                         <span className="text-xl font-semibold text-red-500">
-                            ${Number(specialPrice)}
+                            ${Number(productSpecialPrice)}
                         </span>
                     </div>) : (
                         <div className="text-xl font-bold">
                             <span className="block h-4"></span>
                             <span className="text-xl font-bold text-slate-700">
                                 {""}
-                                ${Number(price)}
+                                ${Number(productPrice)}
                             </span>
                         </div>
                     )}

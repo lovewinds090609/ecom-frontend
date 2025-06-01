@@ -5,7 +5,7 @@ import Status from './Status';
 import { MdClose, MdDone } from 'react-icons/md';
 
 function ProductViewModel({open, setOpen, product, isAvailable}) {
-  const {id, productName, image, description, quantity, productPrice, discount, productSpecialPrice} = product;
+  const {id, productName, image, description, productQuantity, productPrice, discount, productSpecialPrice} = product;
   const handleClickOpen = () => {
     setOpen(true);
   }

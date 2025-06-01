@@ -2,11 +2,11 @@ import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import ProductViewModel from "./ProductViewModel";
 
-const ProductCard = ({productId, productName, image, description, quantity, productPrice, discount, productSpecialPrice}) =>{
+const ProductCard = ({productId, productName, image, description, productQuantity, productPrice, discount, productSpecialPrice}) =>{
     const [openProductViewModel, setOpenProductViewModel] = useState(false);
     const btnLoader = false;
     const [selectedViewProduct, setSelectedViewProduct] = useState("");
-    const isAvailable = quantity && Number(quantity) > 0;
+    const isAvailable = productQuantity && Number(productQuantity) > 0;
     const handleProductView = (product) => {
         setOpenProductViewModel(true);
         setSelectedViewProduct(product);
@@ -14,14 +14,14 @@ const ProductCard = ({productId, productName, image, description, quantity, prod
     return(
         <div className="border rounded-lg shadow-xl overflow-hidden transition-shadow duration-300">
             <div onClick={() => {
-                handleProductView({id: productId, productName, image, description, quantity, productPrice, discount, productSpecialPrice});
+                handleProductView({id: productId, productName, image, description, productQuantity, productPrice, discount, productSpecialPrice});
             }} className="w-full overflow-hidden aspect-[3/2]">
                 <img className="w-full h-full cursor-pointer transition-transform duration-300 transform hover:scale-105"
                 src={image} alt={productName}></img>
             </div>
-            <div className="p-4">
+            <div className="p-1">
                 <h2 onClick={() => {
-                handleProductView({id: productId, productName, image, description, quantity, productPrice, discount, productSpecialPrice});
+                handleProductView({id: productId, productName, image, description, productQuantity, productPrice, discount, productSpecialPrice});
             }} className="text-lg font-semibold mb-2 cursor-pointer">
                     {productName}
                 </h2>

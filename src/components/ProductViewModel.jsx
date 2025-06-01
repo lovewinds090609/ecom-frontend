@@ -34,7 +34,7 @@ function ProductViewModel({open, setOpen, product, isAvailable}) {
               </div>
               <div className="space-y-2 text-gray-700 pb-4">
                 <div className="flex items-center justify-between gap-2">
-                    {productSpecialPrice ? (<div className="flex item-center gap-2">
+                    {productSpecialPrice && productSpecialPrice !== productPrice ? (<div className="flex item-center gap-2">
                         <span className="text-gray-400 line-through">
                             ${Number(productPrice)}
                         </span>

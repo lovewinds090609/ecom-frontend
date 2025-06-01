@@ -29,7 +29,7 @@ const ProductCard = ({productId, productName, image, description, productQuantit
                     <p className="text-gray-600 text-sm text-left">{description}</p>
                 </div>
                 <div className="flex items-center justify-between text-left">
-                {productSpecialPrice ? (<div className="flex flex-col text-left">
+                {productSpecialPrice && productSpecialPrice !== productPrice ? (<div className="flex flex-col text-left">
                     <span className="text-gray-700 line-through">
                         ${Number(productPrice)}
                     </span>

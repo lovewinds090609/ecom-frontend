@@ -5,18 +5,9 @@ import { FormControl, Select, MenuItem ,Button} from "@mui/material";
 import { FiRefreshCw } from "react-icons/fi";
 import { useLocation, useSearchParams, useNavigate } from "react-router-dom";
 
-const Filter = () => {
-    const catregories =[
-        {categoryId: 1, categoryName: "Electronics"}, 
-        {categoryId: 2, categoryName: "Books"}, 
-        {categoryId: 3, categoryName: "Clothing"}, 
-        {categoryId: 4, categoryName: "Home & Garden"}, 
-        {categoryId: 5, categoryName: "Sports & Outdoors"}, 
-        {categoryId: 6, categoryName: "Toys & Games"}, 
-        {categoryId: 7, categoryName: "Health & Beauty"}, 
-        {categoryId: 8, categoryName: "Automotive"}, 
-        {categoryId: 9, categoryName: "Other"}
-    ];
+
+const Filter = ({categories}) => {
+    
 
     const [searchParams] = useSearchParams();
     const params = new URLSearchParams(searchParams);
@@ -98,7 +89,7 @@ const Filter = () => {
                         className="min-w-[120px] text-slate-800 border-slate-700"
                     >
                         <MenuItem value="all">All</MenuItem>
-                        {catregories.map((item) => (
+                        {categories.map((item) => (
                             <MenuItem key={item.categoryId} value={item.categoryName}>
                                 {item.categoryName}
                             </MenuItem>

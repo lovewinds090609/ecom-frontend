@@ -63,12 +63,13 @@ const Filter = () => {
     const toggleSortOrder = () => {
         setSortOrder((prevOrder)=>{
             const newOrder = (prevOrder === "asc") ? "desc" : "asc";
+            console.log(newOrder);
             params.set("sortOrder", newOrder);
             navigate(`${pathname}?${params}`);
             return newOrder;
         })
     };
-
+    
     const handleClearFilters = () => {
         navigate({pathname : window.location.pathname});
     };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import ProductViewModel from "./ProductViewModel";
+import truncateText from "./truncateText";
 
 const ProductCard = ({productId, productName, image, description, productQuantity, productPrice, discount, productSpecialPrice}) =>{
     const [openProductViewModel, setOpenProductViewModel] = useState(false);
@@ -23,10 +24,10 @@ const ProductCard = ({productId, productName, image, description, productQuantit
                 <h2 onClick={() => {
                 handleProductView({id: productId, productName, image, description, productQuantity, productPrice, discount, productSpecialPrice});
             }} className="text-lg font-semibold mb-2 cursor-pointer">
-                    {productName}
+                    {truncateText(productName)}
                 </h2>
                 <div className="min-h-20 max-h-20">
-                    <p className="text-gray-600 text-sm text-left">{description}</p>
+                    <p className="text-gray-600 text-sm text-left">{truncateText(description)}</p>
                 </div>
                 <div className="flex items-center justify-between text-left">
                 {productSpecialPrice && productSpecialPrice !== productPrice ? (<div className="flex flex-col text-left">

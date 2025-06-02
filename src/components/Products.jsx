@@ -6,10 +6,11 @@ import { useEffect } from 'react';
 import Filter from './Filter';
 import useProductFilter from './useProductFilter';
 import Loader from './Loader';
+import CustomerPagination from './Pagination';
 
 const Products = () =>{
     const {isLoading, errorMessage} = useSelector((state) => state.errors);
-    const {products,categories} = useSelector((state) => state.products);
+    const {products,categories,pagination} = useSelector((state) => state.products);
     const dispatch = useDispatch();
     useProductFilter();
     useEffect(() => {dispatch(fetchCategories())},[dispatch]);
@@ -31,6 +32,12 @@ const Products = () =>{
                         {products && 
                         products.map((item, i) => <ProductCard key={i} {...item} />
                         )}
+                    </div>
+                    <div className="flex justify-center items-center pt-10">
+                        <CustomerPagination 
+                            numberOfPage={pagination?.totalPages}
+                            totalProducts={pagination?.totalElements}
+                        />
                     </div>
                 </div>
             )}

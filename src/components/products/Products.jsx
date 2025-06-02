@@ -1,16 +1,16 @@
-import ProductCard from './ProductCard';
+import ProductCard from '../shared/ProductCard';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchCategories } from '../store/actions';
+import { fetchCategories } from '../../store/actions';
 import { useEffect } from 'react';
 import Filter from './Filter';
-import useProductFilter from './useProductFilter';
-import Loader from './Loader';
-import CustomerPagination from './Pagination';
+import useProductFilter from '../hooks/useProductFilter';
+import Loader from '../shared/Loader';
+import CustomerPagination from '../shared/Pagination';
 
 const Products = () =>{
     const {isLoading, errorMessage} = useSelector((state) => state.errors);
-    const {products,categories,pagination} = useSelector((state) => state.products);
+    const {products,categories,productPagination,categoryPagination} = useSelector((state) => state.products);
     const dispatch = useDispatch();
     useProductFilter();
     useEffect(() => {dispatch(fetchCategories())},[dispatch]);
@@ -35,8 +35,8 @@ const Products = () =>{
                     </div>
                     <div className="flex justify-center items-center pt-10">
                         <CustomerPagination 
-                            numberOfPage={pagination?.totalPages}
-                            totalProducts={pagination?.totalElements}
+                            numberOfPage={productPagination?.totalPages}
+                            totalProducts={productPagination?.totalElements}
                         />
                     </div>
                 </div>

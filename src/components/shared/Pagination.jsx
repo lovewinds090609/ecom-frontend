@@ -24,6 +24,7 @@ const CustomerPagination = ({numberOfPage, totalProducts}) => {
             shape="rounded" 
             onChange={onChangeHandler}
             />
+            {console.log(numberOfPage, totalProducts)}
         </div>
     )
 }
